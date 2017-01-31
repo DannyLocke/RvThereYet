@@ -1,8 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title></title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <title>RV There Yet?</title>
+
+    <!-- Bootstrap -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
@@ -10,28 +16,39 @@
 {{^user}}
 <form action="/login" method="post">
     <input type="hidden" placeholder="id" name="idNum"/>
-    <input type="text" placeholder="Enter your name" name="loginName"/>
-    <input type="text" placeholder="Enter your password" name="loginPassword"/>
-    <button type="submit">Login</button>
+    <input type="text" placeholder="Enter UserName" name="userName"/>
+    <input type="text" placeholder="Enter Password" name="userPassword"/>
+    <button type="submit">New User Register</button>
+    <button type="submit">Returning User Login</button>
 </form>
 {{/user}}
 
-{{#user}}
 
-<form action = "/createCart" method = "post">
-    <input type="text" placeholder="Name" name="name"/>
-    <input type = "text" placeholder = "Item or Keyword" name = "search"/>
-    <button type="submit">Submit New Post</button>
+
+{{#user}}
+<form action = "/createItem" method = "post">
+    <input type="hidden" placeholder="id" name="id"/>
+    <input type="text" placeholder="Enter item keyword" name="item"/>
+    <button type="submit">Search</button>
 </form>
 
 <br><br>
 
-{{name}}'s previous searches:
+<form action = "/deleteItem" method = "post">
+    <input type = "text" placeholder = "Which item do you want to delete?" name = "id"/>
+    <button type="submit">Delete Item</button>
+</form>
+
+<br><br>
+
+
+{{userName}}'s previous item searches:
 
 <ul>
+
     {{#items}}
     <li>
-        {{id}}: {{name}}...{{search}}
+        {{id}}: {{item}}
     </li>
     {{/items}}
 
@@ -39,10 +56,11 @@
 
 <br><br>
 
+
+
 <form action="/logout" method="post">
     <button type="submit">Logout</button>
 </form>
-
 {{/user}}
 
 </body>
