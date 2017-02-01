@@ -1,33 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-COMPATIBLE" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--The above 3 meta tags MUST come first in the head; any other head content MUST come after -->
+    <meta name="description" content>
+    <meta name="author" content>
+    <link rel="icon" href="">
+
     <title>RV There Yet? HOME</title>
+
+    <!--Bootstrap core CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
+
+    <!--Custom styles for this template -->
+    <link href="jumbotron-narrow.css" rel="stylesheet">
 </head>
+
+
 <body>
+<img src="RVthereYet.svg">
 
+<div class="container">
 
-{{^user}}
-<form action="/login" method="post">
-    <input type="hidden" placeholder="id" name="id"/>
-    <input type="text" placeholder="enter name" name="name"/>
-    <input type="text" placeholder="enter password" name="password"/>
-    <button type="submit">sign in</button>
-</form>
-{{/user}}
+    <div class="jumbotron">
+        <h1>RV There Yet?</h1>
+        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
+        <p><a class="btn btn-lg btn-success" href="#" role="button"> sign in </a></p>
+    </div>
 
+    <div class="row marketing">
 
-{{#user}}
-<form action = "/createItem" method = "post">
-    <input type="hidden" placeholder="id" name="id"/>
-    <input type="text" placeholder="Enter item keyword" name="item"/>
-    <button type="submit">Search</button>
-</form>
+        {{^user}}
+        <form action="/login" method="post">
+            <input type="hidden" placeholder="id" name="id"/>
+            <input type="text" placeholder="enter name" name="name"/>
+            <input type="text" placeholder="enter password" name="password"/>
+            <button type="submit">sign in</button>
+        </form>
+        {{/user}}
 
-<br><br>
-{{/user}}
+        {{#user}}
+        <form action = "/createItem" method = "post">
+            <input type="hidden" placeholder="id" name="id"/>
+            <input type="text" placeholder="Enter item keyword" name="item"/>
+            <button type="submit">Search</button>
+        </form>
+        {{/user}}
+
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2016 Danny Locke</p>
+    </footer>
+
+</div> <!-- /container -->
 
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
