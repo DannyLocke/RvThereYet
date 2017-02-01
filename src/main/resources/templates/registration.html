@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>RV There Yet? HOME</title>
+    <title>RV There Yet? REGISTRATION</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
 </head>
@@ -11,12 +11,14 @@
 
 {{^user}}
 <form action="/login" method="post">
-    <input type="hidden" placeholder="id" name="id"/>
-    <input type="text" placeholder="enter name" name="name"/>
-    <input type="text" placeholder="enter password" name="password"/>
-    <button type="submit">sign in</button>
+    <input type="hidden" placeholder="id" name="idNum"/>
+    <input type="text" placeholder="Enter UserName" name="userName"/>
+    <input type="text" placeholder="Enter Password" name="userPassword"/>
+    <button type="submit">New User Register</button>
+    <button type="submit">Returning User Login</button>
 </form>
 {{/user}}
+
 
 
 {{#user}}
@@ -26,8 +28,6 @@
     <button type="submit">Search</button>
 </form>
 
-<br><br>
-{{/user}}
 
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>

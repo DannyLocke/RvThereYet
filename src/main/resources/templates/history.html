@@ -2,22 +2,11 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>RV There Yet? HOME</title>
+    <title>RV There Yet? HISTORY</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-
-
-{{^user}}
-<form action="/login" method="post">
-    <input type="hidden" placeholder="id" name="id"/>
-    <input type="text" placeholder="enter name" name="name"/>
-    <input type="text" placeholder="enter password" name="password"/>
-    <button type="submit">sign in</button>
-</form>
-{{/user}}
-
 
 {{#user}}
 <form action = "/createItem" method = "post">
@@ -27,6 +16,34 @@
 </form>
 
 <br><br>
+
+<form action = "/deleteItem" method = "post">
+    <input type = "text" placeholder = "Which item do you want to delete?" name = "id"/>
+    <button type="submit">Delete Item</button>
+</form>
+
+<br><br>
+
+
+{{userName}}'s search history:
+
+<ul>
+
+    {{#items}}
+    <li>
+        {{id}}: {{item}}
+    </li>
+    {{/items}}
+
+</ul>
+
+<br><br>
+
+
+
+<form action="/logout" method="post">
+    <button type="submit">Logout</button>
+</form>
 {{/user}}
 
 <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
