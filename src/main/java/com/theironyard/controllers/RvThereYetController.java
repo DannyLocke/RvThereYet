@@ -56,13 +56,13 @@ public class RvThereYetController {
         //send the list to the template
         //use mustache to display
 
-        JsonParser parser = new JsonParser();
-        WalmartItem listing = parser.parse(sb.toString(), WalmartItem.class);
-        listing.setTotalRate(total);
-
-        JsonSerializer serializer = new JsonSerializer();
-        String json = serializer.include("*").serialize(listing);
-        return json;
+//        JsonParser parser = new JsonParser();
+//        WalmartItem listing = parser.parse(sb.toString(), WalmartItem.class);
+//        listing.setTotalRate(total);
+//
+//        JsonSerializer serializer = new JsonSerializer();
+//        String json = serializer.include("*").serialize(listing);
+//        return json;
 
 
         return "index";
