@@ -1,13 +1,18 @@
 package com.theironyard.entities;
 
+import com.fasterxml.jackson.databind.JsonSerializer;
+import com.theironyard.controllers.RvThereYetController;
+
 import javax.persistence.*;
+import java.io.File;
+import java.io.FileWriter;
 
 /**
  * Created by dlocke on 1/31/17.
  */
 
 @Entity
-@Table(name="items")
+@Table(name="items") // this table holds items from a user's search history
 public class Product {
 
     @Id
@@ -20,7 +25,13 @@ public class Product {
     @ManyToOne
     User user;
 
-    public Product(int id, String item){
+    public Product(int id, String item, User user){
+        this.id = id;
+        this.item = item;
+        this.user = user;
+    }
+
+    public Product (int id, String item){
         this.id = id;
         this.item = item;
     }
@@ -29,9 +40,8 @@ public class Product {
         this.item = item;
     }
 
-    public Product(){
+    public Product(){}
 
-    }
 
     public int getId() {
         return id;
