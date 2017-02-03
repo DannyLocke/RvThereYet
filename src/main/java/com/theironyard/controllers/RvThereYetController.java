@@ -52,7 +52,7 @@ public class RvThereYetController {
 
         StringBuilder sb = new StringBuilder(); //new String derived from JSON data
 
-        System.out.println(sb.toString().replace('\n', ' '));
+        System.out.println(sb);
 
         //parse sb into a NEW array list of objects
         //send the list to the template

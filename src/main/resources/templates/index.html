@@ -22,39 +22,55 @@
 
 
 <body>
-<img src="RVthereYet.svg">
+
 
 <div class="container">
 
-    <div class="jumbotron">
-        <h1>RV There Yet?</h1>
-        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam.</p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button"> sign in </a></p>
-    </div>
 
-    <div class="row marketing">
+    <div class="jumbotron">
+
+        <img src="RVthereYet.svg" class="logo">
+
+        <h1>RV There Yet?</h1>
+
+        <br><br>
+
+        <p class="lead">Please enter your user name and password.</p>
+
+        <br><br>
 
         {{^user}}
         <form action="/login" method="post">
             <input type="hidden" placeholder="id" name="id"/>
             <input type="text" placeholder="enter name" name="name"/>
             <input type="text" placeholder="enter password" name="password"/>
-            <button type="submit">sign in</button>
+            <br><br>
+            <p><a class="btn btn-lg btn-success" href="#" role="button"> sign in </a></p>
         </form>
         {{/user}}
+
+        <br><br>
 
         {{#user}}
         <form action = "/createItem" method = "post">
             <input type="hidden" placeholder="id" name="id"/>
             <input type="text" placeholder="Enter item keyword" name="item"/>
             <button type="submit">Search</button>
+            <br><br>
+            <p><a class="btn btn-lg btn-success" href="#" role="button"> sign in </a></p>
+
         </form>
         {{/user}}
 
+
+
+
     </div>
 
+
     <footer class="footer">
-        <p>&copy; 2016 Danny Locke</p>
+        <p>&copy; 2017 Danny Locke</p>
+        <br><br>
     </footer>
 
 </div> <!-- /container -->
