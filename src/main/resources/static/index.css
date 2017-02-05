@@ -6,12 +6,12 @@ body {
 }
 
 h3.text-energy {
+  font-family: "Georgia", Georgia, serif;
   padding-top: 5px;
   color: orangered;
 }
 
 .jumbotron {
-
   padding: 20px;
   margin-top: 50px;
   margin-bottom: 50px;
@@ -34,6 +34,7 @@ a.btn.btn-success {
 }
 
 .registration {
+  font-family: "Georgia", Georgia, serif;
   margin-bottom: 30px;
 }
 
