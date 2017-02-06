@@ -10,6 +10,7 @@ import com.theironyard.services.ProductRepository;
 import com.theironyard.services.UserRepository;
 import com.theironyard.utilities.PasswordStorage;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,6 +35,9 @@ import java.util.Map;
 @Controller
 public class RvThereYetController {
 
+    @Value("${WalmartKey}")
+    private String WalmartKey;
+
     @Autowired
     UserRepository users;
 
@@ -44,7 +48,7 @@ public class RvThereYetController {
     @RequestMapping(path = "/walmart", method = RequestMethod.GET)
     public String walmartList() throws IOException {
 
-        URL walmartAPI = new URL("http://api.walmartlabs.com/v1/search?query=paper+towel&format=json&apiKey=h8v6s6shygnzfvjpghkkqwh6");
+        URL walmartAPI = new URL("http://api.walmartlabs.com/v1/search?query=paper+towel&format=json&apiKey=" + WalmartKey);
         URLConnection uc = walmartAPI.openConnection();
         BufferedReader in = new BufferedReader(new InputStreamReader(uc.getInputStream()));
 
