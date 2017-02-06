@@ -42,12 +42,18 @@
         {{^user}}
         <form action="/login" method="post">
             <input type="hidden" placeholder="id" name="id"/>
-            <input type="text" placeholder="enter name" name="name"/>
-            <input type="text" placeholder="enter password" name="password"/>
-            <br><br>
-            <p><a class="btn btn-lg btn-success" href="#" role="button"> sign in </a></p>
+            <div class="login-field">
+                <input type="text" placeholder="enter name" name="name"/>
+            </div>
+            <div class="login-field">
+                <input type="text" placeholder="enter password" name="password"/>
+            </div>
+            <div class="login-field">
+                <p><a class="btn btn-lg btn-success" href="#" role="button"> sign in </a></p>
+            </div>
         </form>
         {{/user}}
+
 
     </div>
 

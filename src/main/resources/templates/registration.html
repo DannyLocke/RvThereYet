@@ -22,70 +22,44 @@
 
 
 <body>
-<img src="RVthereYet.svg">
+
 
 <div class="container">
-    <div class="header clearfix">
-        <nav>
-            <ul class="nav nav-pills pull-right">
-                <li role="presentation" class="active"><a href="#">Home</a></li>
-                <li role="presentation"><a href="#">About</a></li>
-                <li role="presentation"><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-        <h3 class="text-muted">Project name</h3>
-    </div>
+
 
     <div class="jumbotron">
+
+        <img src="RVthereYetLOGO.png" class="logo">
+
         <h1>RV There Yet?</h1>
-        <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        <p><a class="btn btn-lg btn-success" href="#" role="button">Sign up today</a></p>
-    </div>
 
-    <div class="row marketing">
-        <div class="col-lg-6">
-            <h4>Subheading</h4>
-            <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
+        <br><br>
 
-            <h4>Subheading</h4>
-            <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
+        <p class="lead">Please enter your user name and password.</p>
 
-            <h4>Subheading</h4>
-            <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-        </div>
-
-        <div class="col-lg-6">
-            <h4>Subheading</h4>
-            <p>Donec id elit non mi porta gravida at eget metus. Maecenas faucibus mollis interdum.</p>
-
-            <h4>Subheading</h4>
-            <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</p>
-
-            <h4>Subheading</h4>
-            <p>Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-        </div>
+        <br><br>
 
         {{^user}}
         <form action="/login" method="post">
             <input type="hidden" placeholder="id" name="id"/>
-            <input type="text" placeholder="enter name" name="name"/>
-            <input type="text" placeholder="enter password" name="password"/>
-            <button type="submit">sign in</button>
+            <div class="login-field">
+                <input type="text" placeholder="enter name" name="name"/>
+            </div>
+            <div class="login-field">
+                <input type="text" placeholder="enter password" name="password"/>
+            </div>
+            <div class="login-field">
+                <p><a class="btn btn-lg btn-success" href="#" role="button"> sign in </a></p>
+            </div>
         </form>
         {{/user}}
 
-        {{#user}}
-        <form action = "/createItem" method = "post">
-            <input type="hidden" placeholder="id" name="id"/>
-            <input type="text" placeholder="Enter item keyword" name="item"/>
-            <button type="submit">Search</button>
-        </form>
-        {{/user}}
 
     </div>
 
     <footer class="footer">
-        <p>&copy; 2016 Company, Inc.</p>
+        <p>&copy; 2017 Danny Locke</p>
+        <br><br>
     </footer>
 
 </div> <!-- /container -->

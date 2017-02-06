@@ -1,15 +1,15 @@
 package com.theironyard.controllers;
 
-import com.fasterxml.jackson.databind.JsonSerializer;
+import jodd.json.JsonParser;
+
 import com.theironyard.entities.Product;
 import com.theironyard.entities.User;
 import com.theironyard.entities.WalmartItem;
+import com.theironyard.entities.WalmartList;
 import com.theironyard.services.ProductRepository;
 import com.theironyard.services.UserRepository;
 import com.theironyard.utilities.PasswordStorage;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.json.BasicJsonParser;
-import org.springframework.boot.json.JsonParser;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,8 +31,6 @@ import java.util.Map;
  * Created by dlocke on 1/30/17.
  */
 
-
-
 @Controller
 public class RvThereYetController {
 
@@ -44,13 +42,18 @@ public class RvThereYetController {
 
     //path to Walmart API
     @RequestMapping(path = "/walmart", method = RequestMethod.GET)
-    public String walmartItem(String id, String item, String price) throws IOException {
+    public String walmartList() throws IOException {
 
         URL walmartAPI = new URL("http://api.walmartlabs.com/v1/search?query=paper+towel&format=json&apiKey=h8v6s6shygnzfvjpghkkqwh6");
         URLConnection uc = walmartAPI.openConnection();
         BufferedReader in = new BufferedReader(new InputStreamReader(uc.getInputStream()));
 
+
         StringBuilder sb = new StringBuilder(); //new String derived from JSON data
+
+        while (in.ready()){
+            sb.append(in.readLine());
+        }
 
         System.out.println(sb);
 
@@ -58,14 +61,10 @@ public class RvThereYetController {
         //send the list to the template
         //use mustache to display
 
-//        JsonParser parser = new JsonParser();
-//        WalmartItem listing = parser.parse(sb.toString(), WalmartItem.class);
-//        listing.setTotalRate(total);
-//
-//        JsonSerializer serializer = new JsonSerializer();
-//        String json = serializer.include("*").serialize(listing);
-//        return json;
+        JsonParser parser = new JsonParser();
+        WalmartList listing = parser.parse(sb.toString(), WalmartList.class);
 
+        System.out.println(listing.getQuery());
 
         return "index";
     }

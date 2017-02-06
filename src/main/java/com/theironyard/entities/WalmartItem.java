@@ -7,13 +7,15 @@ import java.math.BigDecimal;
  */
 public class WalmartItem {
 
+
+
     int itemId;
     String name;
     BigDecimal msrp;
     BigDecimal salePrice;
-    int upc;
+    String upc;
 
-    public WalmartItem(int itemId, String name, BigDecimal msrp, BigDecimal salePrice, int upc) {
+    public WalmartItem(int itemId, String name, BigDecimal msrp, BigDecimal salePrice, String upc) {
         this.itemId = itemId;
         this.name = name;
         this.msrp = msrp;
@@ -55,11 +57,11 @@ public class WalmartItem {
         this.salePrice = salePrice;
     }
 
-    public int getUpc() {
+    public String getUpc() {
         return upc;
     }
 
-    public void setUpc(int upc) {
+    public void setUpc(String upc) {
         this.upc = upc;
     }
 }

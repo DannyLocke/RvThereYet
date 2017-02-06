@@ -4,13 +4,11 @@ body {
   font-family: "Georgia", Georgia, serif;
   padding-top: 40px;
 }
-
 h3.text-energy {
   font-family: "Georgia", Georgia, serif;
   padding-top: 5px;
   color: orangered;
 }
-
 .jumbotron {
   padding: 20px;
   margin-top: 50px;
@@ -22,22 +20,23 @@ h3.text-energy {
   color: BLACK;
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,2989d8+50,207cca+51,7db9e8+100;Blue+Gloss+Default */
   background: DarkGray; /* Old browsers */
-  background: -moz-linear-gradient(top, White 0%, Gainsboro 70%, LightGray 81%, DarkGray 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, White 0%, Gainsboro 70%, LightGray 81%, DarkGray 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, White 0%,Gainsboro 70%,LightGray 81%,DarkGray 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=White, endColorstr=DarkGray,GradientType=0 ); /* IE6-9 */
+  background: -moz-linear-gradient(top, BLACK 0%, Gainsboro 30%, DarkGray 61%, BLACK 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, BLACK 0%, Gainsboro 30%, DarkGray 61%, BLACK 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, BLACK 0%,Gainsboro 30%,DarkGray 61%,BLACK 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=White, endColorstr=BLACK,GradientType=0 ); /* IE6-9 */
 }
-
 a.btn.btn-success {
   font-family: "Georgia", Georgia, serif;
   color: BLACK;
 }
-
 .registration {
   font-family: "Georgia", Georgia, serif;
   margin-bottom: 30px;
 }
-
+.login-field{
+  font-family: "Georgia", Georgia, serif;
+  margin: 20px;
+}
 .logo{
     width:50%;
     height:50%;
