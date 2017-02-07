@@ -41,3 +41,9 @@ a.btn.btn-success {
     width:50%;
     height:50%;
 }
+
+.new-user{
+  font-family: "Georgia", Georgia, serif;
+  margin: 20px;
+  font-color: White
+}
