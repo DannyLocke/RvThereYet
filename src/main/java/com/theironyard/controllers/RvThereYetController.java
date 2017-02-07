@@ -105,30 +105,68 @@ public class RvThereYetController {
 
     //path for HOME
     @RequestMapping(path = "/", method = RequestMethod.GET)
-    public String home(HttpSession session, Model model, String item) throws Exception {
+    public String home(HttpSession session, Model model, String name) throws Exception {
 
-        String userName = (String) session.getAttribute("userName");
+        name = (String) session.getAttribute("name");
 
-        if (userName != null) {
-            User user = users.findFirstByName(userName);
-            model.addAttribute("userName", user);
+        if (name != null) {
+            User user = users.findFirstByName(name);
+            model.addAttribute("name", user);
         }
         return "index";
     }//end home()
 
     //path for login
     @RequestMapping(path = "/login", method = RequestMethod.POST)
-    public String login(HttpSession session, String userName, String userPassword) throws Exception {
-        User user = users.findFirstByName(userName);
+    public String login(HttpSession session, String name, String password) throws Exception {
+        User user = users.findFirstByName(name);
         if (user == null) {
-            user = new User(userName, PasswordStorage.createHash(userPassword));
-            users.save(user);
-        } else if (!PasswordStorage.verifyPassword(userPassword, user.password)) {
-            throw new Exception("Incorrect Password");
+            return "redirect:/"; //with username error message
+        } else if (!PasswordStorage.verifyPassword(password, user.password)) {
+            return "redirect:/"; // with password error message
         }
-        session.setAttribute("userName", userName);
-        return "redirect:/";
+        session.setAttribute("name", name);
+        return "redirect:/search";
     }//end login()
+
+    //path for registration page
+    @RequestMapping(path = "/registration", method = RequestMethod.POST)
+    public String registration(HttpSession session, String name, String password) throws Exception {
+            User user = new User(name, PasswordStorage.createHash(password));
+            users.save(user);
+        session.setAttribute("name", name);
+        return "redirect:/search";
+    }
+
+    //path for search page
+    @RequestMapping(path = "/search", method = RequestMethod.POST)
+    public String search(HttpSession session, String name, String item) {
+
+
+
+        return "redirect:/product";
+    }
+
+
+    //path for product page
+    @RequestMapping(path = "/product", method = RequestMethod.GET)
+    public String product(HttpSession session, String name, String item) {
+
+
+
+        return "redirect:/";
+    }
+
+
+    //path for history page
+    @RequestMapping(path = "/history", method = RequestMethod.GET)
+    public String history(HttpSession session, String name, String item) {
+
+
+
+        return "redirect:/";
+    }
+
 
     @RequestMapping(path = "/logout", method = RequestMethod.POST)
     public String logout(HttpSession session) {
