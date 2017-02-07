@@ -97,13 +97,13 @@ public class RvThereYetController {
 //        JsonParser parser = new JsonParser();
 //        EbayList listing = parser.parse(sb.toString(), EbayList.class);
 //
-//        System.out.println(listing.getFindItemsByKeywordsResponse());
+//        System.out.println(listing.getFindItemsByKeywords());
 
         return "index";
     }
 
 
-    //path for HOME
+    //path for HOME (returning user)
     @RequestMapping(path = "/", method = RequestMethod.GET)
     public String home(HttpSession session, Model model, String name) throws Exception {
 
@@ -116,53 +116,62 @@ public class RvThereYetController {
         return "index";
     }//end home()
 
+    //path for registration page
+    @RequestMapping(path = "/registration", method = RequestMethod.POST)
+    public String registration(HttpSession session, String name, String password) throws Exception {
+        User user = new User(name, PasswordStorage.createHash(password));
+        users.save(user);
+        session.setAttribute("name", name);
+        //registration page should look very similar to "/" page except no link for new user
+
+        return "redirect:/search";
+    }
+
     //path for login
     @RequestMapping(path = "/login", method = RequestMethod.POST)
     public String login(HttpSession session, String name, String password) throws Exception {
         User user = users.findFirstByName(name);
         if (user == null) {
-            return "redirect:/"; //with username error message
+            return "redirect:/"; //NEEDS: username error message
         } else if (!PasswordStorage.verifyPassword(password, user.password)) {
-            return "redirect:/"; // with password error message
+            return "redirect:/"; //NEEDS: password error message
         }
         session.setAttribute("name", name);
-        return "redirect:/search";
+        return "redirect:/search"; //returning and new user both go to search page
     }//end login()
 
-    //path for registration page
-    @RequestMapping(path = "/registration", method = RequestMethod.POST)
-    public String registration(HttpSession session, String name, String password) throws Exception {
-            User user = new User(name, PasswordStorage.createHash(password));
-            users.save(user);
-        session.setAttribute("name", name);
-        return "redirect:/search";
-    }
+
 
     //path for search page
     @RequestMapping(path = "/search", method = RequestMethod.POST)
     public String search(HttpSession session, String name, String item) {
-
-
+        //search page has field for user entry
+        //search button
+        //user types keyword/product and clicks "search"
+        //search button takes user to product page
+        //links near bottom to go to history page
 
         return "redirect:/product";
     }
 
-
     //path for product page
     @RequestMapping(path = "/product", method = RequestMethod.GET)
     public String product(HttpSession session, String name, String item) {
-
-
+        //product page has a list of items returned from the APIs (based on user's keyword)
+        //user can click on an item to go to Walmart.com or Ebay.com
+        //links near bottom to return to search page and/or go to history page
 
         return "redirect:/";
     }
 
-
     //path for history page
     @RequestMapping(path = "/history", method = RequestMethod.GET)
     public String history(HttpSession session, String name, String item) {
-
-
+        //history page has a list of items returned from user's previous searches
+        //user can click on an item to go to Walmart.com or Ebay.com
+        //links near bottom to return to search page and/or go to product page
+        //history page will "LOOK" very similar to product page
+        //difference is that history is based on user and product is based on keyword
 
         return "redirect:/";
     }

@@ -7,12 +7,12 @@ import java.util.ArrayList;
  */
 public class EbayList {
 
-    String findItemsByKeywordsResponse;
+    String findItemsByKeywords;
     int count;
     ArrayList<EbayItem> item;
 
     public EbayList(String findItemsByKeywordsResponse, int count, ArrayList<EbayItem> item) {
-        this.findItemsByKeywordsResponse = findItemsByKeywordsResponse;
+        this.findItemsByKeywords = findItemsByKeywords;
         //this.count = count;
         this.item = item;
     }
@@ -21,12 +21,12 @@ public class EbayList {
 
     }
 
-    public String getFindItemsByKeywordsResponse() {
-        return findItemsByKeywordsResponse;
+    public String getFindItemsByKeywords() {
+        return findItemsByKeywords;
     }
 
-    public void setFindItemsByKeywordsResponse(String findItemsByKeywordsResponse) {
-        this.findItemsByKeywordsResponse = findItemsByKeywordsResponse;
+    public void setFindItemsByKeywords(String findItemsByKeywordsResponse) {
+        this.findItemsByKeywords = findItemsByKeywordsResponse;
     }
 
     public int getCount() {
